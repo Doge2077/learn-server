@@ -30,12 +30,16 @@
 source /root/.bashrc
 source /root/.profile
 
+# 导入 mkdocs 环境变量
+MKDOCS_PATH="/usr/local/bin/mkdocs"
+
 # 日志文件路径
 LOG_FILE="/wiki/log/update.log"
 ERROR_LOG_FILE="/wiki/log/error.log"
 
 # 任务执行时间
 update_time=$(date +"%Y-%m-%d %H:%M:%S")
+tag_bar="====================================================================================================="
 
 # 进入 haue-cs-wiki 目录
 cd /wiki/haue-cs-wiki
@@ -44,20 +48,27 @@ cd /wiki/haue-cs-wiki
 git_pull_output=$(git pull 2>&1)
 git_pull_status=$?
 
-if [ $git_pull_status -eq 0 ]; then
-    echo -e "$update_time: git pull successfully 🤗" >> "$LOG_FILE"
-else
-    echo -e "$update_time: git pull failed 🥵\n Error: $git_pull_output" >> "$ERROR_LOG_FILE"
-fi
-
 # 执行 mkdocs 构建
-mk_build_output=$(mkdocs build 2>&1)
+mk_build_output=$($MKDOCS_PATH 2>&1)
 mk_build_status=$?
 
-if [ $mk_build_status -eq 0 ]; then
-    echo -e "$update_time: mkdocs build successfully 😎\n" >> "$LOG_FILE"
+if [ $git_pull_status == 0 ] && [ $mk_build_status == 0 ]
+then
+    echo -e "$tag_bar\n$update_time: no errors occured 😘\n$tag_bar" >> "$ERROR_LOG_FILE"
+    echo -e "$tag_bar\n$update_time: git pull successfully 🤗" >> "$LOG_FILE"
+    echo -e "$update_time: mkdocs build successfully 😎\n$tag_bar\n" >> "$LOG_FILE"
 else
-    echo -e "$update_time: mkdocs build failed 🤡\n Error: $mk_build_output" >> "$ERROR_LOG_FILE"
+    echo -e "$tag_bar\n$update_time: oops! errors occured 😅\n$tag_bar" >> "$LOG_FILE"
+    echo -e "$tag_bar" >> "$ERROR_LOG_FILE"
+    if [ $git_pull_status != 0 ]
+    then
+        echo -e "$update_time: git pull failed 🥵\nError: $git_pull_output" >> "$ERROR_LOG_FILE"
+    fi
+    if [ $mk_build_status != 0 ]
+    then
+        echo -e "$update_time: mkdocs build failed 🤡\nError: $mk_build_output" >> "$ERROR_LOG_FILE"
+    fi
+    echo -e "$tag_bar\n" >> "$ERROR_LOG_FILE"
 fi
 ```
 
@@ -83,6 +94,12 @@ fi
 ```
 
 其中 `/path/script.sh` 为执行脚本文件所在的绝对路径。
+
+然后退出编辑，重新加载：
+
+```shell
+sudo service cron reload
+```
 
 对于执行时间的设置，在 `crontab` 文件中，时间表达式由五个 `* * * * *` 字段组成，分别表示分钟、小时、日期、月份和星期几。
 
