@@ -161,39 +161,305 @@
 
 ****
 
-## 数据量及速率的换算关系
+## 数据量及速率
 
 ****
 
-![](https://image.itbaima.net/images/40/image-2023070300961033.png)
+### bit & byte
 
 ****
 
-## 区分数据单位
+> The **bit** is the most basic [unit of information](https://en.wikipedia.org/wiki/Units_of_information) in [computing](https://en.wikipedia.org/wiki/Computing) and digital [communications](https://en.wikipedia.org/wiki/Communication). The name is a [portmanteau](https://en.wikipedia.org/wiki/Portmanteau) of **binary digit**.[[1\]](https://en.wikipedia.org/wiki/Bit#cite_note-Mackenzie_1980-1) The bit represents a [logical state](https://en.wikipedia.org/wiki/Truth_value) with one of two possible [values](https://en.wikipedia.org/wiki/Value_(computer_science)). These values are most commonly represented as either "1" or "0", but other representations such as *true*/*false*, *yes*/*no*, *on*/*off*, or *+*/*−* are also widely used.
+
+$bit$ （比特）就是计算机中对于数据量描述的最小单位了，而 $byte$ （字节）则是由 $8$ 个 $bit$ 组成的，即 $1 byte = 2^3 bit$
+
+一般认为，$b$ 表示 $bit$，而 $B$ 表示 $byte$。
+
+**不同的进制标准**：如果表示 $bit$ 和 $byte$ 的集合，由于不同的标准下制定的进制不一致，导致大众混淆了用法，甚至连教科书里面的内容都不求甚解。
 
 ****
 
-在计算机组成原理中，指的是存储空间大小，而在在计算机网络中，指的是数据量的大小，但都以二进制为基准：
+### 比特的次方单位
 
-- $bit$：比特，最小的计量单位
-- $byte/B$：字节，$1 B = 2^3 bit$
-- $KB$：千字节，$1 KB = 2^{10}B$
-- $MB$：兆字节，$1 MB = 2^{10}KB$
-- $GB$：吉字节，$1 GB = 2^{10} MB$
-- $TB$：太字节，$1 TB = 2^{10} GB$
+****
 
-但对于计算机网络中的数据率（比特率）来说，是以十进制为基准的：
+<table class="infobox" style="text-align:center; width: 100%">
+  <tbody>
+    <tr>
+      <th colspan="6" style="background-color:#ccf;"><a class="mw-selflink selflink">比特</a>的次方单位</th>
+    </tr>
 
-- $bit/s$：比特每秒，最小的计量单位，也可写为 $b/s$ 或 $bps$
-- $kb/s$：千比特每秒，$1 kb/s = 1 \times 10^3 b/s$
-- $Mb/s$：兆比特每秒，$1 Mb/s = 1 \times 10^6 b/s$
-- $Gb/s$：吉比特每秒，$1 Gb/s = 1 \times 10^9 b/s$
-- $Tb/s$：太比特每秒，$1 TB = 1 \times 10^{12} b/s$
+    <tr>
+      <td>
+        <table class="infobox" style="margin: 0; width: 100%">
+          <tbody>
+                <tr>
+      <th colspan="3" style="background-color:#ddf;"><a href="/wiki/%E5%9B%BD%E9%99%85%E5%8D%95%E4%BD%8D%E5%88%B6%E8%AF%8D%E5%A4%B4" title="国际单位制词头">十进制前缀</a><br>(<a href="/wiki/%E5%9B%BD%E9%99%85%E5%8D%95%E4%BD%8D%E5%88%B6" title="国际单位制">SI</a>)</th>
+      <th colspan="3" style="background-color:#ddf;"><a href="/wiki/%E4%BA%8C%E9%80%B2%E4%BD%8D%E5%89%8D%E7%BD%AE%E8%A9%9E" title="二进制前置词">二进制前缀</a><br>(<a href="/wiki/IEC_60027-2" class="mw-redirect" title="IEC 60027-2">IEC 60027-2</a>)</th>
+    </tr>
+    <tr>
+      <th>名字</th>
+      <th>缩写</th>
+      <th>次方</th>
+      <th>名字</th>
+      <th>缩写</th>
+      <th>次方</th>
+    </tr>
+    <tr>
+      <td style="text-align:left;"><a href="/wiki/%E5%8D%83%E6%AF%94%E7%89%B9" title="千比特">kilobit</a></td>
+      <td>kbit</td>
+      <td><a href="/wiki/1000" title="1000">10<sup>3</sup></a></td>
+      <td style="text-align:left;"><a href="/wiki/Kibibit" title="Kibibit">kibibit</a></td>
+      <td>Kibit</td>
+      <td><a href="/wiki/1024" title="1024">2<sup>10</sup></a></td>
+    </tr>
+    <tr>
+      <td style="text-align:left;"><a href="/wiki/Megabit" title="Megabit">megabit</a></td>
+      <td>Mbit</td>
+      <td><a href="/wiki/1_E6" class="mw-redirect" title="1 E6">10<sup>6</sup></a></td>
+      <td style="text-align:left;"><a href="/wiki/Mebibit" title="Mebibit">mebibit</a></td>
+      <td>Mibit</td>
+      <td><a href="/wiki/1048576" title="1048576">2<sup>20</sup></a></td>
+    </tr>
+    <tr>
+      <td style="text-align:left;"><a href="/wiki/Gigabit" title="Gigabit">gigabit</a></td>
+      <td>Gbit</td>
+      <td><a href="/wiki/1_E9" class="mw-redirect" title="1 E9">10<sup>9</sup></a></td>
+      <td style="text-align:left;"><a href="/wiki/Gibibit" title="Gibibit">gibibit</a></td>
+      <td>Gibit</td>
+      <td><a href="/wiki/1073741824" title="1073741824">2<sup>30</sup></a></td>
+    </tr>
+    <tr>
+      <td style="text-align:left;"><a href="/wiki/Terabit" title="Terabit">terabit</a></td>
+      <td>Tbit</td>
+      <td><a href="/wiki/1_E12" class="mw-redirect" title="1 E12">10<sup>12</sup></a></td>
+      <td style="text-align:left;"><a href="/wiki/Tebibit" title="Tebibit">tebibit</a></td>
+      <td>Tibit</td>
+      <td><a href="/wiki/1099511627776" title="1099511627776">2<sup>40</sup></a></td>
+    </tr>
+    <tr>
+      <td style="text-align:left;"><a href="/wiki/Petabit" title="Petabit">petabit</a></td>
+      <td>Pbit</td>
+      <td><a href="/wiki/1_E15" class="mw-redirect" title="1 E15">10<sup>15</sup></a></td>
+      <td style="text-align:left;"><a href="/wiki/Pebibit" title="Pebibit">pebibit</a></td>
+      <td>Pibit</td>
+      <td><a href="/wiki/1125899906842624" title="1125899906842624">2<sup>50</sup></a></td>
+    </tr>
+    <tr>
+      <td style="text-align:left;"><a href="/wiki/Exabit" title="Exabit">exabit</a></td>
+      <td>Ebit</td>
+      <td><a href="/wiki/1_E18" class="mw-redirect" title="1 E18">10<sup>18</sup></a></td>
+      <td style="text-align:left;"><a href="/wiki/Exbibit" title="Exbibit">exbibit</a></td>
+      <td>Eibit</td>
+      <td><a href="/wiki/1152921504606846976" title="1152921504606846976">2<sup>60</sup></a></td>
+    </tr>
+    <tr>
+      <td style="text-align:left;"><a href="/wiki/Zettabit" title="Zettabit">zettabit</a></td>
+      <td>Zbit</td>
+      <td><a href="/wiki/1_E21" class="mw-redirect" title="1 E21">10<sup>21</sup></a></td>
+      <td style="text-align:left;"><a href="/wiki/Zebibit" title="Zebibit">zebibit</a></td>
+      <td>Zibit</td>
+      <td><a href="/wiki/1180591620717411303424" title="1180591620717411303424">2<sup>70</sup></a></td>
+    </tr>
+    <tr>
+      <td style="text-align:left;"><a href="/wiki/Yottabit" title="Yottabit">yottabit</a></td>
+      <td>Ybit</td>
+      <td><a href="/wiki/1_E24" class="mw-redirect" title="1 E24">10<sup>24</sup></a></td>
+      <td style="text-align:left;"><a href="/wiki/Yobibit" title="Yobibit">yobibit</a></td>
+      <td>Yibit</td>
+      <td><a href="/wiki/1208925819614629174706176" title="1208925819614629174706176">2<sup>80</sup></a></td>
+    </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+****
+
+### 字节的次方单位
+
+****
+
+<table class="infobox" style="text-align:center; width: 100%">
+  <tbody>
+    <tr>
+      <th colspan="2" style="background-color:#ccf;"><a class="mw-selflink selflink">字节</a>的次方单位</th>
+    </tr>
+    <tr>
+      <td>
+        <table class="infobox" style="margin: 0; width: 100%">
+          <tbody>
+            <tr>
+              <th colspan="3" style="background-color:#ddf;"><a href="/wiki/%E5%9B%BD%E9%99%85%E5%8D%95%E4%BD%8D%E5%88%B6%E8%AF%8D%E5%A4%B4" title="国际单位制词头">十进制前缀</a><br>(<a href="/wiki/%E5%9B%BD%E9%99%85%E5%8D%95%E4%BD%8D%E5%88%B6" title="国际单位制">SI</a>)</th>
+              <th colspan="3" style="background-color:#ddf;"><a href="/wiki/%E4%BA%8C%E9%80%B2%E4%BD%8D%E5%89%8D%E7%BD%AE%E8%A9%9E" title="二进制前置词">二进制前缀</a><br>(<a href="/wiki/IEC_60027-2" class="mw-redirect" title="IEC 60027-2">IEC 60027-2</a>)</th>
+            </tr>
+            <tr>
+              <th style="background-color:#ddf">名字</th>
+              <th style="background-color:#ddf">缩写</th>
+              <th style="background-color:#ddf">次方</th>
+              <th style="background-color:#ddf">名字</th>
+              <th style="background-color:#ddf">缩写</th>
+              <th style="background-color:#ddf">次方</th>
+            </tr>
+            <tr>
+              <td style="text-align:left;"><a href="/wiki/%E5%8D%83%E5%AD%97%E8%8A%82" title="千字节">千字节</a></td>
+              <td>KB</td>
+              <td><a href="/wiki/1_E3" class="mw-redirect" title="1 E3">10<sup>3</sup></a></td>
+              <td style="text-align:left;"><a href="/wiki/Kibibyte" title="Kibibyte">kibibyte</a></td>
+              <td>KiB</td>
+              <td>2<sup>10</sup></td>
+            </tr>
+            <tr>
+              <td style="text-align:left;"><a href="/wiki/%E7%99%BE%E8%90%AC%E4%BD%8D%E5%85%83%E7%B5%84" title="兆字节">兆字节</a></td>
+              <td>MB</td>
+              <td><a href="/wiki/1_E6" class="mw-redirect" title="1 E6">10<sup>6</sup></a></td>
+              <td style="text-align:left;"><a href="/wiki/Mebibyte" title="Mebibyte">mebibyte</a></td>
+              <td>MiB</td>
+              <td>2<sup>20</sup></td>
+            </tr>
+            <tr>
+              <td style="text-align:left;"><a href="/wiki/%E5%90%89%E5%AD%97%E8%8A%82" title="吉字节">吉字节</a></td>
+              <td>GB</td>
+              <td><a href="/wiki/1_E9" class="mw-redirect" title="1 E9">10<sup>9</sup></a></td>
+              <td style="text-align:left;"><a href="/wiki/Gibibyte" title="Gibibyte">gibibyte</a></td>
+              <td>GiB</td>
+              <td>2<sup>30</sup></td>
+            </tr>
+            <tr>
+              <td style="text-align:left;"><a href="/wiki/%E5%A4%AA%E5%AD%97%E8%8A%82" title="太字节">太字节</a></td>
+              <td>TB</td>
+              <td><a href="/wiki/1_E12" class="mw-redirect" title="1 E12">10<sup>12</sup></a></td>
+              <td style="text-align:left;"><a href="/wiki/Tebibyte" title="Tebibyte">tebibyte</a></td>
+              <td>TiB</td>
+              <td>2<sup>40</sup></td>
+            </tr>
+            <tr>
+              <td style="text-align:left;"><a href="/wiki/%E6%8B%8D%E5%AD%97%E8%8A%82" title="拍字节">拍字节</a></td>
+              <td>PB</td>
+              <td><a href="/wiki/1_E15" class="mw-redirect" title="1 E15">10<sup>15</sup></a></td>
+              <td style="text-align:left;"><a href="/wiki/Pebibyte" title="Pebibyte">pebibyte</a></td>
+              <td>PiB</td>
+              <td>2<sup>50</sup></td>
+            </tr>
+            <tr>
+              <td style="text-align:left;"><a href="/wiki/%E8%89%BE%E5%AD%97%E8%8A%82" title="艾字节">艾字节</a></td>
+              <td>EB</td>
+              <td><a href="/wiki/1_E18" class="mw-redirect" title="1 E18">10<sup>18</sup></a></td>
+              <td style="text-align:left;"><a href="/wiki/Exbibyte" title="Exbibyte">exbibyte</a></td>
+              <td>EiB</td>
+              <td>2<sup>60</sup></td>
+            </tr>
+            <tr>
+              <td style="text-align:left;"><a href="/wiki/%E6%B3%BD%E5%AD%97%E8%8A%82" title="泽字节">泽字节</a></td>
+              <td>ZB</td>
+              <td><a href="/wiki/1_E21" class="mw-redirect" title="1 E21">10<sup>21</sup></a></td>
+              <td style="text-align:left;"><a href="/wiki/Zebibyte" title="Zebibyte">zebibyte</a></td>
+              <td>ZiB</td>
+              <td>2<sup>70</sup></td>
+            </tr>
+            <tr>
+              <td style="text-align:left;">尧字节</td>
+              <td>YB</td>
+              <td><a href="/wiki/1_E24" class="mw-redirect" title="1 E24">10<sup>24</sup></a></td>
+              <td style="text-align:left;"><a href="/wiki/Yobibyte" title="Yobibyte">yobibyte</a></td>
+              <td>YiB</td>
+              <td>2<sup>80</sup></td>
+            </tr>
+            <tr>
+              <td style="text-align:left;">容字节</td>
+              <td>RB</td>
+              <td><a href="/wiki/1_E27" class="mw-redirect" title="1 E27">10<sup>27</sup></a></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td style="text-align:left;">昆字节</td>
+              <td>QB</td>
+              <td><a href="/wiki/1_E30" class="mw-redirect" title="1 E30">10<sup>30</sup></a></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+****
+
+### 比特率的换算关系
+
+****
+
+<table class="infobox" style="text-align:center; width: 100%">
+  <tbody>
+    <tr>
+      <th colspan="3" style="background-color:#ccf;"><a href="/wiki/%E6%AF%94%E7%89%B9%E7%8E%87"title="比特率">比特率</a></th>
+    </tr>
+    <tr>
+      <td>
+        <table class="infobox" style="margin: 0; width: 100%">
+          <tbody>
+            <tr>
+              <th colspan="3" style="background-color:#ddf;"><a href="/wiki/%E5%9B%BD%E9%99%85%E5%8D%95%E4%BD%8D%E5%88%B6%E8%AF%8D%E5%A4%B4" title="国际单位制词头">十进制前缀</a><br>(<a href="/wiki/%E5%9B%BD%E9%99%85%E5%8D%95%E4%BD%8D%E5%88%B6" title="国际单位制">SI</a>)</th>
+              <th colspan="3" style="background-color:#ddf;"><a href="/wiki/%E4%BA%8C%E9%80%B2%E4%BD%8D%E5%89%8D%E7%BD%AE%E8%A9%9E" title="二进制前置词">二进制前缀</a><br>(<a href="/wiki/IEC_60027-2" class="mw-redirect" title="IEC 60027-2">IEC 60027-2</a>)</th>
+            </tr>
+            <tr>
+              <th style="background-color:#ddf">名称</th>
+              <th style="background-color:#ddf">符号</th>
+              <th style="background-color:#ddf">次方</th>
+              <th style="background-color:#ddf">名称</th>
+              <th style="background-color:#ddf">符号</th>
+              <th style="background-color:#ddf">次方</th>
+            </tr>
+            <tr>
+              <td style="text-align:center;"><a href="/wiki/Kilobit_per_second" class="mw-redirect" title="Kilobit per second">千比特每秒（kbps）</a></td>
+              <td style="text-align:left;">kbit/s</td>
+              <td><a href="/wiki/1000" title="1000">10<sup>3</sup></a></td>
+              <td style="text-align:center;"><a href="/w/index.php?title=Kibibit_per_second&amp;action=edit&amp;redlink=1" class="new" title="Kibibit per second（页面不存在）">二进制千比特每秒（Kibps）</a></td>
+              <td>Kibit/s</td>
+              <td>2<sup>10</sup></td>
+            </tr>
+            <tr>
+              <td style="text-align:center;"><a href="/w/index.php?title=Megabit_per_second&amp;action=edit&amp;redlink=1" class="new" title="Megabit per second（页面不存在）">兆比特每秒（Mbps）</a></td>
+              <td style="text-align:left;">Mbit/s</td>
+              <td><a href="/wiki/1_E6" class="mw-redirect" title="1 E6">10<sup>6</sup></a></td>
+              <td style="text-align:center;"><a href="/w/index.php?title=Mebibit_per_second&amp;action=edit&amp;redlink=1" class="new" title="Mebibit per second（页面不存在）">二进制兆比特每秒（Mibps）</a></td>
+              <td>Mibit/s</td>
+              <td>2<sup>20</sup></td>
+            </tr>
+            <tr>
+              <td style="text-align:center;"><a href="/w/index.php?title=Gigabit_per_second&amp;action=edit&amp;redlink=1" class="new" title="Gigabit per second（页面不存在）">吉比特每秒（Gbps）</a></td>
+              <td style="text-align:left;">Gbit/s</td>
+              <td><a href="/wiki/1_E9" class="mw-redirect" title="1 E9">10<sup>9</sup></a></td>
+              <td style="text-align:center;"><a href="/w/index.php?title=Gibibit_per_second&amp;action=edit&amp;redlink=1" class="new" title="Gibibit per second（页面不存在）">二进制吉比特每秒（Gibps）</a></td>
+              <td>Gibit/s</td>
+              <td>2<sup>30</sup></td>
+            </tr>
+            <tr>
+              <td style="text-align:center;"><a href="/w/index.php?title=Terabit_per_second&amp;action=edit&amp;redlink=1" class="new" title="Terabit per second（页面不存在）">太比特每秒（Tbps）</a></td>
+              <td style="text-align:left;">Tbit/s</td>
+              <td><a href="/wiki/1_E12" class="mw-redirect" title="1 E12">10<sup>12</sup></a></td>
+              <td style="text-align:center;"><a href="/w/index.php?title=Tebibit_per_second&amp;action=edit&amp;redlink=1" class="new" title="Tebibit per second（页面不存在）">二进制太比特每秒（Tibps）</a></td>
+              <td>Tibit/s</td>
+              <td>2<sup>40</sup></td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 **例如**：
 
-- 对于一个 $1.5MB$ 的数据包，其包含的数据量为 $1.5 \times 2^{20} bit$
-- 若数据率为 $2 Mb/s$，则传输所需时间为 $1.5 \times 2^{20} bit \div 2 \times 10^6 bit/s = 7.86432 \times 10^{-1} s$
+- 对于一个 $1.5MB$ 的数据包，其包含的数据量为 $1.5 \times 2^{20} \times 8bit$
+- 若数据率为 $2 Mb/s$，则传输所需时间为 $1.5 \times 2^{20} \times 8 bit \div 2 \times 10^6 bit/s = 6.291456  s$
 
 ****
 
