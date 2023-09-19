@@ -49,8 +49,11 @@ git_pull_output=$(git pull 2>&1)
 git_pull_status=$?
 
 # 执行 mkdocs 构建
-mk_build_output=$($MKDOCS_PATH 2>&1)
+mk_build_output=$($MKDOCS_PATH build 2>&1)
 mk_build_status=$?
+
+#echo "$git_pull_output"
+#echo "$mk_build_output"
 
 if [ $git_pull_status == 0 ] && [ $mk_build_status == 0 ]
 then
